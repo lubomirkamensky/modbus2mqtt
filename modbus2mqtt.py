@@ -88,7 +88,7 @@ class Register:
                 r=self.format[1] % r
             if r!=self.lastval or (args.force and (time.time() - self.last) > int(args.force)):
                 self.lastval=r
-                fulltopic=topic+"status/"+self.topic
+                fulltopic=topic+self.topic
                 logging.info("Publishing " + fulltopic)
                 mqc.publish(fulltopic,self.lastval,qos=0,retain=True)
                 self.last = time.time()
@@ -114,7 +114,7 @@ with open(args.registers,"r") as csvfile:
         if row["Topic"][0]=="#":
             continue
         if row["Topic"]=="DEFAULT":
-            temp=dict((k,v) for k,v in row.iteritems() if v is not None and v!="")
+            temp=dict((k,v) for k,v in row.items() if v is not None and v!="")
             defaultrow.update(temp)
             continue
         freq=row["Frequency"]
@@ -165,7 +165,7 @@ def messagehandler(mqc,userdata,msg):
     except Exception as e:
         logging.error("Error on message " + msg.topic + " :" + str(e))
     
-def connecthandler(mqc,userdata,rc):
+def connecthandler(mqc,userdata,flags,rc):
     logging.info("Connected to MQTT broker with rc=%d" % (rc))
     mqc.subscribe(topic+"set/+/"+str(cst.WRITE_SINGLE_REGISTER)+"/+")
     mqc.subscribe(topic+"set/+/"+str(cst.WRITE_SINGLE_COIL)+"/+")
