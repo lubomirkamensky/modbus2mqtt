@@ -2,9 +2,13 @@ modbus2mqtt
 ===========
 
   This fork was created to make it work with Python 3.X and latest paho-mqtt.
-  Only tested for Modbus TCP. Example is for Heat recovery unit Futura 
+  Only tested for Modbus TCP. 
+
+  Example is for Heat recovery unit Futura 
   from Jablotron https://rekuperace.jablotron.cz/en.
+
   Usage: python3 modbus2mqtt.py --mqtt-topic futura --tcp HOST_IP --registers futura.csv 
+  
   (C) 2018 Lubomir Kamensky <lubomir.kamensky@gmail.com> 
 
   Thanks to the author of the main trunk:
