@@ -4,14 +4,15 @@ modbus2mqtt
   This fork was created to make it work with Python 3.X and latest paho-mqtt.
   Only tested for Modbus TCP. 
 
-  Example is for Heat recovery unit Futura 
+  Refisters definition for Heat recovery unit Futura 
   from Jablotron https://rekuperace.jablotron.cz/en.
 
   Usage: python3 modbus2mqtt.py --mqtt-topic futura --tcp HOST_IP --registers futura.csv 
-  
+
   (C) 2018 Lubomir Kamensky <lubomir.kamensky@gmail.com> 
 
   Thanks to the author of the main trunk:
+
   Written and (C) 2015 Oliver Wagner <owagner@tellerulam.com> 
   
   Provided under the terms of the MIT license.
@@ -52,6 +53,8 @@ Command line options
       --clientid MQTT_CLIENT_ID
                             optional prefix for MQTT Client ID
 
+      --tcp                 Modbus TCP server IP adress
+      --tcp-port             Port for Modbus TCP. Defaults to 502
       --rtu RTU             pyserial URL (or port name) for RTU serial port
       --rtu-baud RTU_BAUD   Baud rate for serial port. Defaults to 19200
       --rtu-parity {even,odd,none}
