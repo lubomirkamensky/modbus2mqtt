@@ -90,7 +90,7 @@ class Register:
                 self.lastval=r
                 fulltopic=topic+self.topic
                 logging.info("Publishing " + fulltopic)
-                mqc.publish(fulltopic,self.lastval,qos=0,retain=True)
+                mqc.publish(fulltopic,self.lastval,qos=0,retain=False)
                 self.last = time.time()
         except modbus_tk.modbus.ModbusError as exc:
             logging.error("Error reading "+self.topic+": Slave returned %s - %s", exc, exc.get_exception_code())
